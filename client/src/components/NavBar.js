@@ -3,7 +3,7 @@ import {Context} from "../index";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import {NavLink} from "react-router-dom";
-import {ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../utils/consts";
+import {ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, ABOUT_ROUTE} from "../utils/consts";
 import {Button} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
@@ -18,20 +18,24 @@ const NavBar = observer(() => {
     }
 
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="primary" variant="primary">
             <Container>
-                <NavLink style={{color:'white'}} to={SHOP_ROUTE}>Honey Map</NavLink>
+                <NavLink style={{color:'white'}} to={SHOP_ROUTE}>SOUL GALLERY</NavLink>  
+                <NavLink className="ml-5" style={{color:'white'}} to={ABOUT_ROUTE}>ABOUT US</NavLink>
                 {user.isAuth ?
+                
                     <Nav className="ml-auto" style={{color: 'white'}}>
                         <Button
-                            variant={"outline-warning"}
+                            variant={"outline-white"}
                             onClick={() => history.push(ADMIN_ROUTE)}
+                            style={{color: 'white', borderColor: "white"}}
                         >
                             Админ панель
                         </Button>
                         <Button
-                            variant={"outline-warning"}
+                            variant={"outline-white"}
                             onClick={() => logOut()}
+                            style={{color: 'white', borderColor: "white"}}
                             className="ml-2"
                         >
                             Выйти
@@ -39,7 +43,7 @@ const NavBar = observer(() => {
                     </Nav>
                     :
                     <Nav className="ml-auto" style={{color: 'white'}}>
-                        <Button variant={"outline-light"} onClick={() => history.push(LOGIN_ROUTE)}>Авторизация</Button>
+                        <Button variant={"outline-white"} style={{color: 'white', borderColor: "white"}} onClick={() => history.push(LOGIN_ROUTE)}>Авторизация</Button>
                     </Nav>
                 }
             </Container>

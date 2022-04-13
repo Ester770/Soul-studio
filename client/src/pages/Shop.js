@@ -23,16 +23,21 @@ const Shop = observer(() => {
     }, [])
 
     useEffect(() => {
-        fetchDevices(device.selectedType.id, device.selectedBrand.id, device.page, 4).then(data => {
+        fetchDevices(device.selectedType.id, device.selectedBrand.id, device.page, 12).then(data => {
             device.setDevices(data.rows)
             device.setTotalCount(data.count)
         })
     }, [device.page, device.selectedType, device.selectedBrand,])
 
     return (
-        <Container>
+        <Container className='container-fluid'>
+            <Row className='mt-12'>
+                <div class="embed-responsive embed-responsive-16by9 mt-3">
+                    <iframe width="500" height="300" src="https://www.youtube.com/embed/cGZ1YZTHsoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loop></iframe>
+                </div>
+            </Row>
             <Row className="mt-2">
-                <Col md={3}>
+                <Col md={3} className="ml-0">
                     <TypeBar/>
                 </Col>
                 <Col md={9}>
